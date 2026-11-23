@@ -22,3 +22,9 @@ class TestCalculator(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+    def test_subtract_numbers(self):
+        """Test subtraction function"""
+        self.assertEqual(subtract_numbers(5, 3), 2)
+        self.assertEqual(subtract_numbers(0, 5), -5)
+        self.assertEqual(subtract_numbers(-2, -3), 1)

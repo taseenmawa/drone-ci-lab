@@ -20,3 +20,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+def subtract_numbers(a, b):
+    """Subtract two numbers and return the result"""
+    return a - b

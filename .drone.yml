@@ -1,0 +1,39 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: test
+  image: python:3.9-slim
+  commands:
+  - echo "Starting Python application tests..."
+  - python --version
+  - python -m py_compile app.py
+  - python -m unittest test_app.py -v
+  - echo "All tests passed successfully!"
+
+- name: build
+  image: python:3.9-slim
+  commands:
+  - echo "Building application..."
+  - python app.py
+  - echo "Build completed successfully!"
+
+- name: notify
+  image: alpine:latest
+  commands:
+  - echo "Pipeline completed successfully!"
+  - echo "Commit: $DRONE_COMMIT"
+  - echo "Branch: $DRONE_BRANCH"
+  - echo "Build Number: $DRONE_BUILD_NUMBER"
+  when:
+    status:
+    - success
+
+trigger:
+  branch:
+  - main
+  - master
+  event:
+  - push
+  - pull_request

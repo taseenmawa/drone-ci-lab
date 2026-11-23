@@ -23,9 +23,9 @@ steps:
   image: alpine:latest
   commands:
   - echo "Pipeline completed successfully!"
-  - echo "Commit: $DRONE_COMMIT"
-  - echo "Branch: $DRONE_BRANCH"
-  - echo "Build Number: $DRONE_BUILD_NUMBER"
+  - echo "Commit $DRONE_COMMIT"
+  - echo "Branch $DRONE_BRANCH"
+  - echo "Build Number $DRONE_BUILD_NUMBER"
   when:
     status:
     - success
@@ -37,3 +37,4 @@ trigger:
   event:
   - push
   - pull_request
+  - custom

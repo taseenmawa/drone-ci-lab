@@ -28,3 +28,10 @@ if __name__ == '__main__':
         self.assertEqual(subtract_numbers(5, 3), 2)
         self.assertEqual(subtract_numbers(0, 5), -5)
         self.assertEqual(subtract_numbers(-2, -3), 1)
+
+    def test_divide_numbers(self):
+        """Test division function"""
+        self.assertEqual(divide_numbers(10, 2), 5.0)
+        self.assertEqual(divide_numbers(9, 3), 3.0)
+        with self.assertRaises(ValueError):
+            divide_numbers(5, 0)
